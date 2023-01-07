@@ -1,5 +1,5 @@
-import { useGetAllPostsQuery } from '../../../services/posts'
-import PostCard from './postCard/PostCard'
+import { useGetAllPostsQuery } from '../../services/posts'
+import PostCard from '../post-card/PostCard'
 
 export default function PostList() {
   const { isError, isLoading, data } = useGetAllPostsQuery()

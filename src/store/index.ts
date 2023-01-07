@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { postApi } from '../features/posts/services/posts/index'
-import { postsReducer } from '../features/posts/slice/postsSlice'
 
 export const store = configureStore({
   reducer: {
-    posts: postsReducer,
     [postApi.reducerPath]: postApi.reducer,
   },
   middleware(getDefaultMiddleware) {

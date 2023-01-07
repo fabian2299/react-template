@@ -1,4 +1,4 @@
-import Posts from '../features/posts/components/posts/Posts'
+import { Posts } from '../features/posts'
 
 export default function PostsPage() {
   return (
