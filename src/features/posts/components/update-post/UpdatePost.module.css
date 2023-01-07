@@ -1,0 +1,28 @@
+.form {
+  @apply flex flex-col items-center justify-center w-full h-full;
+}
+
+.l-wrapper {
+  @apply flex flex-col items-center justify-center w-full h-full;
+}
+
+.label {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.input {
+  @apply w-1/2 p-2 my-2 border-2 border-gray-800 rounded-md;
+}
+
+.button-show {
+  @apply w-1/5 p-2  text-white bg-blue-500 rounded-md my-10;
+}
+
+.button-submit {
+  @apply w-1/5 p-2 text-white bg-blue-500 rounded-md my-10;
+}
+
+.button-submit:disabled {
+  @apply  cursor-not-allowed opacity-50;
+}
+
