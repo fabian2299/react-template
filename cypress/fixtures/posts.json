@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "The 10 Best Places to Visit in the USA",
+    "body": " 1. New York City, New York, USA , 2. Los Angeles, California, USA , 3. Chicago, Illinois, USA , 4. Las Vegas, Nevada, USA , 5. San Francisco, California, USA , 6. Washington, D.C., USA , 7. Boston, Massachusetts, USA , 8. Philadelphia, Pennsylvania, USA , 9. Houston, Texas, USA , 10. Seattle, Washington, USA ",
+    "user_id": "1"
+  },
+  {
+    "id": "2",
+    "title": "The 10 Best Places to Visit in the World",
+    "body": " 1. Paris, France , 2. Rome, Italy , 3. London, England , 4. New York City, New York, USA , 5. Barcelona, Spain , 6. Istanbul, Turkey , 7. Marrakech, Morocco , 8. Prague, Czech Republic , 9. Amsterdam, Netherlands , 10. Venice, Italy ",
+    "user_id": "2"
+  }
+]
