@@ -1,16 +1,22 @@
 // Need to use the React-specific entry point to import createApi
 import { nanoid } from '@reduxjs/toolkit'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Post } from '../../../../types/post'
+import { Post, PostDTO } from '../../../../types/post'
 
 // Define a service using a base URL and expected endpoints
 export const postApi = createApi({
   reducerPath: 'postAPi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://jsonplaceholder.typicode.com/posts/',
+    // delay response by 2 second to simulate a slow server
+    fetchFn: async (args, init) => {
+      await new Promise((resolve) => setTimeout(resolve, 2000))
+      return fetch(args, init)
+    },
   }),
   tagTypes: ['Post'],
   endpoints: (builder) => ({
+    // Queries
     getPostByID: builder.query<Post, string>({
       query: (id) => id,
     }),
@@ -21,15 +27,35 @@ export const postApi = createApi({
           ? [...result.map(({ id }) => ({ type: 'Post' as const, id })), 'Post']
           : ['Post'],
     }),
-    // create mutation
-    createPost: builder.mutation<Post, Partial<Post>>({
-      query: (obj: Partial<Post>) => ({
+    // Mutations
+    createPost: builder.mutation<Post, PostDTO>({
+      query: (obj: PostDTO) => ({
         url: '',
         method: 'POST',
         body: {
           title: obj.title,
           body: obj.body,
           id: nanoid(),
+        },
+      }),
+      invalidatesTags: ['Post'],
+    }),
+    deletePost: builder.mutation<Post, string>({
+      query: (id) => ({
+        url: id,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Post'],
+    }),
+    updatePost: builder.mutation<Post, PostDTO>({
+      query: (obj: PostDTO) => ({
+        url: obj.id?.toString() || '',
+        method: 'PATCH',
+        body: {
+          title: obj.title,
+          body: obj.body,
+          id: obj.id,
+          userId: obj.userId,
         },
       }),
       invalidatesTags: ['Post'],
@@ -43,4 +69,6 @@ export const {
   useGetPostByIDQuery,
   useGetAllPostsQuery,
   useCreatePostMutation,
+  useDeletePostMutation,
+  useUpdatePostMutation,
 } = postApi
