@@ -1,0 +1,15 @@
+.l-layout {
+  @apply flex flex-col min-h-screen;
+}
+
+.l-layout__header {
+  @apply flex-shrink-0;
+}
+
+.l-layout__main {
+  @apply flex-grow bg-slate-100 p-4 max-w-7xl overflow-x-hidden mx-auto w-full;
+}
+
+.l-layout__footer {
+  @apply flex-shrink-0;
+} 

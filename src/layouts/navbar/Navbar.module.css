@@ -1,0 +1,7 @@
+.l-navbar {
+  @apply flex items-center justify-between h-16 px-4 bg-gray-800 text-white;
+}
+
+.l-navbar__links {
+  @apply flex justify-center h-full gap-10 w-full items-center;
+}

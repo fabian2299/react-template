@@ -5,4 +5,4 @@ export interface Post {
   body: string
 }
 
-export type PostDTO = Omit<Post, 'id'>
+export type PostDTO = Partial<Post>
