@@ -1,0 +1,7 @@
+.l-grid {
+  @apply  grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10
+}
+
+.c-card {
+  @apply flex flex-col justify-between h-[276px] p-4 bg-gray-200 rounded-lg shadow-md gap-4 animate-pulse 
+}
