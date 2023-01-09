@@ -1,10 +1,11 @@
+import { Button } from '@ui/button/Button'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { PostDTO } from '../../../../types/post'
 import { useCreatePostMutation } from '../../services/posts'
 import styles from './CreatePost.module.css'
 
-export default function CreatePost() {
+export function CreatePost() {
 	const [createPost, { isLoading }] = useCreatePostMutation()
 	const [showForm, setShowForm] = useState(false)
 	const [postBody, setPostBody] = useState<PostDTO>({
@@ -26,12 +27,9 @@ export default function CreatePost() {
 
 	return (
 		<div>
-			<button
-				className={styles['button-show']}
-				onClick={() => setShowForm(!showForm)}
-			>
+			<Button onClick={() => setShowForm(!showForm)} intent="secondary">
 				+ Create Post
-			</button>
+			</Button>
 
 			{showForm && (
 				<form onSubmit={handleSubmit} className={styles['form']}>
@@ -69,13 +67,9 @@ export default function CreatePost() {
 						/>
 					</div>
 
-					<button
-						className={styles['button-submit']}
-						type="submit"
-						disabled={isLoading}
-					>
+					<Button disabled={isLoading} fullWidth>
 						Create
-					</button>
+					</Button>
 				</form>
 			)}
 		</div>
