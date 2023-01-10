@@ -1,27 +1,24 @@
+import { Button } from '@ui/button/Button'
+import { toast } from 'react-hot-toast'
 import { useDeletePostMutation } from '../../services/posts'
-import styles from './DeletePost.module.css'
 
-export default function DeletePost({ id }: { id: number }) {
-  const [deletePost, { isLoading }] = useDeletePostMutation()
+export function DeletePost({ id }: { id: number }) {
+	const [deletePost, { isLoading }] = useDeletePostMutation()
 
-  const handleDelete = async () => {
-    try {
-      await deletePost(id.toString()).unwrap()
-      console.log('Post deleted')
-    } catch (error) {
-      console.log('Error deleting post')
-    }
-  }
+	const handleDelete = async () => {
+		try {
+			await deletePost(id).unwrap()
+			toast.success('Post deleted')
+		} catch (error) {
+			console.log('Error deleting post')
+		}
+	}
 
-  return (
-    <div>
-      <button
-        onClick={handleDelete}
-        disabled={isLoading}
-        className={styles['button']}
-      >
-        Delete Post
-      </button>
-    </div>
-  )
+	return (
+		<div>
+			<Button onClick={handleDelete} disabled={isLoading} intent="danger">
+				Delete Post
+			</Button>
+		</div>
+	)
 }

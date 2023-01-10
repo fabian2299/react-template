@@ -1,11 +1,11 @@
-import CreatePost from '../create-post/CreatePost'
-import PostList from '../post-list/PostList'
+import { CreatePost } from '../create-post/CreatePost'
+import { PostList } from '../post-list/PostList'
 
-export default function Posts() {
-  return (
-    <div>
-      <CreatePost />
-      <PostList />
-    </div>
-  )
+export function Posts() {
+	return (
+		<div>
+			<CreatePost />
+			<PostList />
+		</div>
+	)
 }
