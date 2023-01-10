@@ -1,8 +1,8 @@
+import { Button } from '@ui/button/Button'
 import { toast } from 'react-hot-toast'
 import { useDeletePostMutation } from '../../services/posts'
-import styles from './DeletePost.module.css'
 
-export default function DeletePost({ id }: { id: number }) {
+export function DeletePost({ id }: { id: number }) {
 	const [deletePost, { isLoading }] = useDeletePostMutation()
 
 	const handleDelete = async () => {
@@ -16,13 +16,9 @@ export default function DeletePost({ id }: { id: number }) {
 
 	return (
 		<div>
-			<button
-				onClick={handleDelete}
-				disabled={isLoading}
-				className={styles['button']}
-			>
+			<Button onClick={handleDelete} disabled={isLoading} intent="danger">
 				Delete Post
-			</button>
+			</Button>
 		</div>
 	)
 }

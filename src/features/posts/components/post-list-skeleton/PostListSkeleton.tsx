@@ -1,6 +1,6 @@
 import styles from './PostListSkeleton.module.css'
 
-export default function PostListSkeleton() {
+export function PostListSkeleton() {
 	return (
 		<section>
 			<div className={styles['l-grid']}>

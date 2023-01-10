@@ -1,9 +1,9 @@
 import { useGetAllPostsQuery } from '../../services/posts'
-import PostCard from '../post-card/PostCard'
-import PostListSkeleton from '../post-list-skeleton/PostListSkeleton'
+import { PostCard } from '../post-card/PostCard'
+import { PostListSkeleton } from '../post-list-skeleton/PostListSkeleton'
 import styles from './PostList.module.css'
 
-export default function PostList() {
+export function PostList() {
 	const { isError, isFetching, data } = useGetAllPostsQuery()
 
 	if (isFetching) return <PostListSkeleton />

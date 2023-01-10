@@ -19,6 +19,8 @@ export const postApi = createApi({
 		// Queries
 		getPostByID: builder.query<Post, string>({
 			query: (id) => id,
+			providesTags: (result, error, arg) =>
+				result ? [{ type: 'Post' as const, id: arg }] : [],
 		}),
 		getAllPosts: builder.query<Post[], void>({
 			query: () => '',

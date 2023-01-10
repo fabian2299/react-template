@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useGetPostByIDQuery } from '../../services/posts'
-import UpdatePost from '../update-post/UpdatePost'
+import { UpdatePost } from '../update-post/UpdatePost'
 
 export function PostDetails() {
 	const { id } = useParams()
