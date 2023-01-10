@@ -18,7 +18,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@ui/*": ["./src/components/ui/*"],
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
