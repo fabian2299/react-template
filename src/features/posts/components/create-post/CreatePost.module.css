@@ -3,7 +3,7 @@
 }
 
 .l-wrapper {
-  @apply flex flex-col w-full h-full gap-4;
+  @apply border border-transparent;
 }
 
 .label {

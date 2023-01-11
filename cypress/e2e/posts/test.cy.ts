@@ -8,7 +8,7 @@ describe('CRUD operations related to posts', () => {
 		cy.visit('/posts')
 	})
 
-	it('create post', () => {
+	it('create and delete post', () => {
 		// open create post modal
 		cy.findByRole('button', { name: /create post/i }).click()
 		// type to title input
@@ -23,18 +23,7 @@ describe('CRUD operations related to posts', () => {
 		cy.findByText(/post created/i).should('exist')
 		// post should be visible in the list
 		cy.findAllByText(postBody.title).first().should('exist')
-	})
-
-	it('delete post', () => {
-		cy.findByRole('button', { name: /create post/i }).click()
-		// type to title input
-		cy.findByLabelText(/title/i).type(postBody.title)
-		// type to body input
-		cy.findByLabelText(/body/i).type(postBody.body)
-		// click on submit button
-		cy.get('form').within(() => {
-			cy.findByRole('button', { name: /create/i }).click()
-		})
+		// find all buttons with text delete post and click on the last one
 		cy.findAllByRole('button', { name: /delete post/i })
 			.last()
 			.click()
