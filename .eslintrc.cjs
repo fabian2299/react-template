@@ -20,11 +20,11 @@ module.exports = {
 	},
 	plugins: ['react', '@typescript-eslint', 'prettier'],
 	rules: {
-		'react/react-in-jsx-scope': 'off',
-		'import/prefer-default-export': 'off',
-		'import/extensions': 'never',
-		'prettier/prettier': 'error',
-		'arrow-body-style': 'off',
-		'prefer-arrow-callback': 'off',
+		'react/react-in-jsx-scope': 0,
+		'import/prefer-default-export': 0,
+		'import/extensions': 0,
+		'prettier/prettier': 2,
+		'arrow-body-style': 0,
+		'prefer-arrow-callback': 0,
 	},
 }
