@@ -1,5 +1,5 @@
-import { render, screen } from '@/utils/test-utils'
 import { Button } from '@ui/button/Button'
+import { render, screen } from '@/utils/test-utils'
 
 describe('Button', () => {
 	it('renders correctly', () => {

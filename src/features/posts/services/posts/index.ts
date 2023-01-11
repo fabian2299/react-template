@@ -10,6 +10,7 @@ export const postApi = createApi({
 		baseUrl: 'http://localhost:3000/api/posts/',
 		// delay response by 2 second to simulate a slow server
 		fetchFn: async (args, init) => {
+			// eslint-disable-next-line no-promise-executor-return
 			await new Promise((resolve) => setTimeout(resolve, 2000))
 			return fetch(args, init)
 		},
@@ -24,7 +25,7 @@ export const postApi = createApi({
 		}),
 		getAllPosts: builder.query<Post[], void>({
 			query: () => '',
-			providesTags: (result, error, arg) =>
+			providesTags: (result) =>
 				result
 					? [...result.map(({ id }) => ({ type: 'Post' as const, id })), 'Post']
 					: ['Post'],

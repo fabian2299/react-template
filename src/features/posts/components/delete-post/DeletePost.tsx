@@ -10,7 +10,7 @@ export function DeletePost({ id }: { id: number }) {
 			await deletePost(id).unwrap()
 			toast.success('Post deleted')
 		} catch (error) {
-			console.log('Error deleting post')
+			toast.error('Something went wrong')
 		}
 	}
 

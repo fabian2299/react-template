@@ -21,6 +21,13 @@
     },
     "types": ["vitest/globals"]
   },
-  "include": ["src", ".eslintrc.cjs", "vite.config.ts"],
+  "include": [
+    "src", 
+    ".eslintrc.cjs", 
+    "vite.config.ts", 
+    "postcss.config.cjs", 
+    "tailwind.config.cjs", 
+    "cypress.config.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
