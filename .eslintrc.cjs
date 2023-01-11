@@ -35,5 +35,14 @@ module.exports = {
 		'prettier/prettier': 2,
 		'arrow-body-style': 0,
 		'prefer-arrow-callback': 0,
+		'@typescript-eslint/no-unused-vars': [
+			1,
+			{
+				vars: 'all',
+				varsIgnorePattern: '^_',
+				args: 'after-used',
+				argsIgnorePattern: '^_',
+			},
+		],
 	},
 }
