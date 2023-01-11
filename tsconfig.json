@@ -18,8 +18,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@ui/*": ["./src/components/ui/*"],
-    }
+    },
+    "types": ["vitest/globals"]
   },
-  "include": ["src"],
+  "include": ["src", ".eslintrc.cjs", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

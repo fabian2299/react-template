@@ -21,7 +21,7 @@ export function CreatePost() {
 			setShowForm(false)
 			toast.success('Post created')
 		} catch (error) {
-			console.log('Error creating post')
+			toast.error('Something went wrong')
 		}
 	}
 
@@ -32,39 +32,38 @@ export function CreatePost() {
 			</Button>
 
 			{showForm && (
-				<form onSubmit={handleSubmit} className={styles['form']}>
+				<form onSubmit={handleSubmit} className={styles.form}>
 					<div className={styles['l-wrapper']}>
-						<label htmlFor="title" className={styles['label']}>
+						<label htmlFor="title" className={styles.label}>
 							Title
+							<input
+								className={styles.input}
+								type="text"
+								id="title"
+								name="title"
+								value={postBody.title}
+								onChange={(e) =>
+									setPostBody({ ...postBody, title: e.target.value })
+								}
+							/>
 						</label>
-						<input
-							className={styles['input']}
-							type="text"
-							id="title"
-							name="title"
-							value={postBody.title}
-							onChange={(e) =>
-								setPostBody({ ...postBody, title: e.target.value })
-							}
-						/>
 					</div>
 
 					<div className={styles['l-wrapper']}>
-						<label htmlFor="body" className={styles['label']}>
+						<label htmlFor="body" className={styles.label}>
 							Body
+							<textarea
+								className={styles.input}
+								name="body"
+								id="body"
+								cols={30}
+								rows={10}
+								value={postBody.body}
+								onChange={(e) =>
+									setPostBody({ ...postBody, body: e.target.value })
+								}
+							/>
 						</label>
-
-						<textarea
-							className={styles['input']}
-							name="body"
-							id="body"
-							cols={30}
-							rows={10}
-							value={postBody.body}
-							onChange={(e) =>
-								setPostBody({ ...postBody, body: e.target.value })
-							}
-						/>
 					</div>
 
 					<Button disabled={isLoading} fullWidth>
