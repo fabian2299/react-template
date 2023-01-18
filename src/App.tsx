@@ -6,31 +6,27 @@ import PostDetailsPage from './pages/post/PostDetailsPage'
 import PostsPage from './pages/posts/PostsPage'
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      { path: '/', element: <HomePage /> },
+	{
+		path: '/',
+		element: <MainLayout />,
+		errorElement: <ErrorPage />,
+		children: [
+			{ path: '/', element: <HomePage /> },
 
-      {
-        path: '/posts',
-        element: <PostsPage />,
-      },
-      {
-        path: 'posts/:id',
-        element: <PostDetailsPage />,
-      },
-    ],
-  },
+			{
+				path: '/posts',
+				element: <PostsPage />,
+			},
+			{
+				path: 'posts/:id',
+				element: <PostDetailsPage />,
+			},
+		],
+	},
 ])
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+	return <RouterProvider router={router} />
 }
 
 export default App

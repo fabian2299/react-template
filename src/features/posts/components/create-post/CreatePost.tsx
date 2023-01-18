@@ -16,7 +16,9 @@ export function CreatePost() {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		try {
+			console.log('hola')
 			await createPost(postBody).unwrap()
+
 			setPostBody({ title: '', body: '' })
 			setShowForm(false)
 			toast.success('Post created')
@@ -43,7 +45,10 @@ export function CreatePost() {
 								name="title"
 								value={postBody.title}
 								onChange={(e) =>
-									setPostBody({ ...postBody, title: e.target.value })
+									setPostBody({
+										...postBody,
+										title: e.target.value,
+									})
 								}
 							/>
 						</label>
@@ -60,13 +65,16 @@ export function CreatePost() {
 								rows={10}
 								value={postBody.body}
 								onChange={(e) =>
-									setPostBody({ ...postBody, body: e.target.value })
+									setPostBody({
+										...postBody,
+										body: e.target.value,
+									})
 								}
 							/>
 						</label>
 					</div>
 
-					<Button disabled={isLoading} fullWidth>
+					<Button type="submit" disabled={isLoading} fullWidth>
 						Create
 					</Button>
 				</form>

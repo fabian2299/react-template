@@ -35,5 +35,19 @@
 //     }
 //   }
 // }
-
 import '@testing-library/cypress/add-commands'
+
+Cypress.Commands.add('login', (email, password) => {
+	cy.visit('http://zero.webappsecurity.com/login.html')
+	cy.get('#user_login').type(email)
+	cy.get('#user_password').type(password)
+	cy.get('input[name="submit"]').click()
+})
+
+declare global {
+	namespace Cypress {
+		interface Chainable {
+			login(email: string, password: string): Chainable<void>
+		}
+	}
+}

@@ -7,11 +7,12 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"cypress:open": "cypress open",
+		"prepare": "husky install",
 		"coverage": "vitest run --coverage",
 		"test": "vitest",
 		"test:ui": "vitest --ui",
-		"prepare": "husky install"
+		"cy:open": "cypress open",
+		"cy:cloud": "npx cypress run --record --key c425c123-7500-47bf-8249-03f2fd5091df"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.7",
@@ -60,7 +61,6 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
-			"prettier --write",
 			"eslint --fix"
 		]
 	}

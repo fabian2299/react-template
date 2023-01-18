@@ -22,7 +22,13 @@ interface Props
 	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
 		VariantProps<typeof buttonStyles> {}
 
-export function Button({ intent, fullWidth, children, type, ...props }: Props) {
+export function Button({
+	intent,
+	fullWidth,
+	children,
+	type,
+	...props
+}: Props): JSX.Element {
 	return (
 		<button
 			type={type ? 'submit' : 'button'}

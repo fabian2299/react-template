@@ -11,7 +11,7 @@ export const postApi = createApi({
 		// delay response by 2 second to simulate a slow server
 		fetchFn: async (args, init) => {
 			// eslint-disable-next-line no-promise-executor-return
-			await new Promise((resolve) => setTimeout(resolve, 2000))
+			await new Promise((resolve) => setTimeout(resolve, 1000))
 			return fetch(args, init)
 		},
 	}),
@@ -25,9 +25,15 @@ export const postApi = createApi({
 		}),
 		getAllPosts: builder.query<Post[], void>({
 			query: () => '',
-			providesTags: (result) =>
+			providesTags: (result, _error, _arg) =>
 				result
-					? [...result.map(({ id }) => ({ type: 'Post' as const, id })), 'Post']
+					? [
+							...result.map(({ id }) => ({
+								type: 'Post' as const,
+								id,
+							})),
+							'Post',
+					  ]
 					: ['Post'],
 		}),
 		// Mutations

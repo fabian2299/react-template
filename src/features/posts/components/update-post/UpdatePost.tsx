@@ -28,7 +28,9 @@ export function UpdatePost({ id }: { id: number }) {
 
 	return (
 		<div>
-			<Button onClick={() => setShowUpdate(!showUpdate)}>Update Post</Button>
+			<Button onClick={() => setShowUpdate(!showUpdate)}>
+				Update Post
+			</Button>
 
 			{showUpdate && (
 				<form onSubmit={handleSubmit} className={styles.form}>
@@ -42,7 +44,10 @@ export function UpdatePost({ id }: { id: number }) {
 								name="title"
 								value={postBody.title}
 								onChange={(e) =>
-									setPostBody({ ...postBody, title: e.target.value })
+									setPostBody({
+										...postBody,
+										title: e.target.value,
+									})
 								}
 							/>
 						</label>
@@ -59,13 +64,19 @@ export function UpdatePost({ id }: { id: number }) {
 								rows={10}
 								value={postBody.body}
 								onChange={(e) =>
-									setPostBody({ ...postBody, body: e.target.value })
+									setPostBody({
+										...postBody,
+										body: e.target.value,
+									})
 								}
 							/>
 						</label>
 					</div>
 
-					<Button className={styles['button-submit']} disabled={isLoading}>
+					<Button
+						className={styles['button-submit']}
+						disabled={isLoading}
+					>
 						Update
 					</Button>
 				</form>
